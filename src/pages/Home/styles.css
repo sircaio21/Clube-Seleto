@@ -33,3 +33,7 @@ padding: 24px;
     width: 100%;
 
 }
+
+.test{
+    background-attachment: fixed;
+}
