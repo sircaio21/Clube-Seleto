@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 function Home(){
     const classes = useStyles()
     return (
-        <div>
+        <div className={classes.root}>
             <Header />
             <div className={classes.toolbar}></div>
             <main className={classes.main}> 
