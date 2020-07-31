@@ -1,10 +1,10 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import PostCard from "../../../components/PostCard"
-
+import Grid from '@material-ui/core/Grid';
 const useStyles = makeStyles((theme)=>({
     root:{
-        display: "flex"
+        flexGrow: 1,
     }
 }))
  
@@ -49,20 +49,29 @@ const posts = [
     description: "Oq acharam??",
     image: "/images/posts/post2_loira.jpg",            
     },
-
     ];
 
 function Feed(){
     const classes = useStyles()
     return(
-        <div className={classes.root}>
-            {
+        
+            <div className={classes.root}>
+            
+                <Grid container spacing={1}>
+                    {
                 posts.map(post => (
-                    <PostCard key={post.id} post={post}/>
+        
+                        <Grid item xs={6} spacing={1}>
+                            <PostCard key={post.id} post={post}/>
+                        </Grid>
+                    
                 ))
-            }
-           
-        </div>
+                        }
+                </Grid>
+            
+            </div>
+            
+        
 
     )
 }

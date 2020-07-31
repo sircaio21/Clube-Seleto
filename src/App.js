@@ -8,7 +8,7 @@ import {Route} from 'react-router-dom'
 
 import theme from "./theme"
 function App() {
-  const url = window.location.href
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>

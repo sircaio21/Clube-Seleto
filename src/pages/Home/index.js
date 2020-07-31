@@ -9,7 +9,7 @@ import  Box  from '@material-ui/core/Box';
 const useStyles = makeStyles({
     root:{
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: "column"
     },
     main:{
         height: '100vh',

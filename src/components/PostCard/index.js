@@ -11,7 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import MessageIcon from '@material-ui/icons/Message';
-
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme)=>({
     root:{
@@ -31,13 +31,19 @@ const useStyles = makeStyles((theme)=>({
     },
     image:{
     height: 300,
-    marginLeft: theme.spacing(4),
+    //marginLeft: theme.spacing(4),
     width:"auto",
     maxWidth:"auto",
-    alignItems: "cen"
+    
     },
     content:{
-        padding: 0
+        padding: 0,
+    },
+    contentArea:{
+        
+        display: "flex",
+        flexDirection:"row",
+        justifyContent: "center"
     },
     favorite:{
         marginLeft: "auto"
@@ -48,6 +54,7 @@ const useStyles = makeStyles((theme)=>({
 function PostCard({post}){
     const classes = useStyles();
     return(
+    <Grid item xs={12}>
     <Card className={classes.root}>
         <CardHeader 
             avatar={<Avatar src={post.autor.avatar}/>}
@@ -67,7 +74,7 @@ function PostCard({post}){
             }
         />
         <CardContent className={classes.content}>
-            <CardActionArea>
+            <CardActionArea className={classes.contentArea}> 
                 <img src={post.image} className={classes.image} alt="img"/>
             </CardActionArea>
             
@@ -104,6 +111,7 @@ function PostCard({post}){
             
         </CardActions>
     </Card>
+    </Grid>
     )
 
 
