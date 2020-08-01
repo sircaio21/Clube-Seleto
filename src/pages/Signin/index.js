@@ -3,7 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import { Avatar, Typography, Button, Link,Paper } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField"
+import TextField from "@material-ui/core/TextField";
+import {useNavigate} from "react-router-dom";
+import axios from "../../utils/axios";
+
 
 const useStyles =  makeStyles((theme)=>({
     root:{
@@ -64,9 +67,20 @@ function Copyright(){
         {new Date().getFullYear()}
         </Typography>
     )
+
+
 }
 function Signin(){
     const classes = useStyles();
+    const navigate = useNavigate();
+    
+     async function handleSignIn(){
+        const response = await axios.post("/api/home/login");
+        console.log(response);
+        
+    }
+
+
     return (
         <Grid container className={classes.root}>
             <Grid className={classes.left}
@@ -125,10 +139,11 @@ function Signin(){
                             autoComplete="current-password"
                         />
                         <Button
-                        size="large"                      
-                        className={classes.button}
+                                size="large"                      
+                                className={classes.button}
                                 variant="contained"
-                                color="primary"      
+                                color="primary"  
+                                onClick={handleSignIn}    
                             >
                                 Entrar
                         </Button>
