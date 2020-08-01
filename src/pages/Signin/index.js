@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import { Avatar, Typography, Button, Link } from "@material-ui/core";
+import { Avatar, Typography, Button, Link,Paper } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField"
 
 const useStyles =  makeStyles((theme)=>({
@@ -16,7 +16,8 @@ const useStyles =  makeStyles((theme)=>({
 
     avatar:{
         background: theme.palette.primary.main,
-        marginBottom: theme.spacing(1)
+        marginBottom: theme.spacing(1),
+        
 
     },
     //     flexGrow: 0,
@@ -35,14 +36,24 @@ const useStyles =  makeStyles((theme)=>({
         padding: theme.spacing(2),
      },
      button:{
-         marginTop: theme.spacing(2), 
+         marginTop: theme.spacing(0), 
+         marginBottom: theme.spacing(2)
      },
      form:{
         margin: theme.spacing(0,4,0,4),
         flexDirection:"column",
         justifyContent:"center",
-        alignItems: "center"
+        textAlign: "center"
+     },
+     esenha:{
+        marginTop: theme.spacing(1)
+     },
+     paper:{
+        flexDirection:"column",
+        
+        textAlign: "center"
      }
+
 
 }));
 function Copyright(){
@@ -73,14 +84,24 @@ function Signin(){
             <Grid md={5} className={classes.right} >
                 <Box display="flex"
                       flexDirection="column"
+                      direction="column"
+                      justify="center"
                       alignItems="center" 
                       m={8} >
-                    <Avatar className={classes.avatar}>
+                    <Paper elevation={10} className={classes.paper} variant="rounded">
+                    <Box display="flex"
+                      flexDirection="column"
+                      alignItems="center" 
+                      m={1} >
+                   <Avatar className={classes.avatar}>
                     </Avatar>
+                    </Box>
                     <Typography variant="h5">
                         Dados de usuário:
                     </Typography>
+                    
                     <form className={classes.form}>
+                    
                         <TextField 
                             variant="outlined"
                             margin="normal"
@@ -104,16 +125,19 @@ function Signin(){
                             autoComplete="current-password"
                         />
                         <Button
-                        fullWidth  
+                        size="large"                      
                         className={classes.button}
                                 variant="contained"
                                 color="primary"      
                             >
                                 Entrar
                         </Button>
+                        
                     </form>
+                    </Paper>
                     
-                    <Grid Item>
+                    
+                    <Grid Item className={classes.esenha}>
                     <Link>Esqueceu sua senha?</Link>
                 </Grid>
                 <Grid Item>
