@@ -1,16 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import { Avatar, Typography, Button, Link,Paper } from "@material-ui/core";
+import { Avatar, Typography, Button, Link,Paper, FormHelperText } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import {useNavigate} from "react-router-dom";
 import axios from "../../utils/axios";
-
+import authService from "../../services/authService"
 
 const useStyles =  makeStyles((theme)=>({
     root:{
-        //display: "flex",
+       
         height:"100vh",
     },
     left:{
@@ -23,13 +23,7 @@ const useStyles =  makeStyles((theme)=>({
         
 
     },
-    //     flexGrow: 0,
-    //     flexBasis: "58%",
-    //     display: "flex",
-    //     flexDirection:"column",
-    //     justifyContent:"center",
-    //     alignItems: "center"
-    // },
+    
     right:{
         background: "#ffcbdb",
     },
@@ -73,10 +67,18 @@ function Copyright(){
 function Signin(){
     const classes = useStyles();
     const navigate = useNavigate();
-    
+    const [email, setEmail]= useState("");
+    const [password, setPassword]= useState("");
+    const [errorMessage, setErrorMessage]= useState();
+
      async function handleSignIn(){
-        const response = await axios.post("/api/home/login");
-        console.log(response);
+        try{
+        await authService.signIn(email,password) 
+        navigate("/ ")
+        }catch(error){
+        setErrorMessage(error.response.data.message)
+        }
+        
         
     }
 
@@ -117,6 +119,7 @@ function Signin(){
                     <form className={classes.form}>
                     
                         <TextField 
+                            required
                             variant="outlined"
                             margin="normal"
                             required
@@ -126,8 +129,11 @@ function Signin(){
                             name="email"
                             autoComplete="email"
                             autoFocus
+                            value={email}
+                            onChange={(event)=>setEmail(event.target.value)}
                         />
                         <TextField 
+                            required
                             variant="outlined"
                             margin="normal"
                             required
@@ -137,6 +143,8 @@ function Signin(){
                             type="password"
                             name="password"
                             autoComplete="current-password"
+                            value={password}
+                            onChange={(event)=>setPassword(event.target.value)}
                         />
                         <Button
                                 size="large"                      
@@ -147,6 +155,13 @@ function Signin(){
                             >
                                 Entrar
                         </Button>
+                        {
+                            errorMessage&&
+                            <FormHelperText error>
+                                {errorMessage}
+                            </FormHelperText>
+
+                        }
                         
                     </form>
                     </Paper>
@@ -170,23 +185,9 @@ function Signin(){
         
 
     )
-        // <div className={classes.root}>
-        //     {/* Flex Item container*/}
-        //     <div className={classes.left}>
-        //     <img src="/images/cover.png" alt="logo" className={classes.img}></img>
-        //    {/* Flex Item */}
-        //     </div>
-        //     <div className={classes.right}>
-        //         <form className={classes.form}>
-        //             <h4>Acesso</h4>
-        //             <input type="text"></input>
-        //             <input type="password"></input>
-        //         </form>
-        //     </div>
-        // </div>
-        
-        // )
 
     }
 
 export default Signin;
+
+
