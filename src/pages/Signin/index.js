@@ -6,7 +6,8 @@ import { Avatar, Typography, Button, Link,Paper, FormHelperText } from "@materia
 import TextField from "@material-ui/core/TextField";
 import {useNavigate} from "react-router-dom";
 import axios from "../../utils/axios";
-import authService from "../../services/authService"
+import {useSelector, useDispatch} from "react-redux";
+import signIn from "../../actions/accountActions"; 
 
 const useStyles =  makeStyles((theme)=>({
     root:{
@@ -70,19 +71,20 @@ function Signin(){
     const [email, setEmail]= useState("");
     const [password, setPassword]= useState("");
     const [errorMessage, setErrorMessage]= useState();
-
+    const account = useSelector(state=> state)
+    const dispatch = useDispatch();
+    
      async function handleSignIn(){
         try{
-        await authService.signIn(email,password) 
+        await dispatch(signIn(email, password)); 
         navigate("/ ")
         }catch(error){
-        setErrorMessage(error.response.data.message)
+        console.log(error) 
+        //setErrorMessage(error.response.data.message)
         }
         
         
     }
-
-
     return (
         <Grid container className={classes.root}>
             <Grid className={classes.left}

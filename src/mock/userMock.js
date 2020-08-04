@@ -1,11 +1,6 @@
 import mock from "../utils/mock";
+import { Avatar } from "@material-ui/core";
 
-// mock.onPost("/api/home/login").reply(200,
-//     {
-//         "id": 1,
-//         "username": "sircaio21",
-//         "email": "caio21122001@gmail.com"
-//     })
 
 mock.onPost("/api/home/login").reply((config)=>{
     const {email, password} = JSON.parse(config.data);
@@ -16,7 +11,8 @@ mock.onPost("/api/home/login").reply((config)=>{
         id: 1,
         name:"Caio Santos",
         username:"sircaio21",
-        email:"caio21122001@gmail.com"
+        email:"caio21122001@gmail.com",
+        avatar:"/images/avatars/avatar4_loira.jpg"
     }
     return[200,{user}]
 })

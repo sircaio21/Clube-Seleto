@@ -7,6 +7,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import {Bell} from "react-feather"
 import { Avatar } from '@material-ui/core';
+import {useSelector} from "react-redux"
+
 
 const useStyles = makeStyles({
  appBar:{
@@ -35,6 +37,10 @@ bell:{
 
 function Header(){
     const classes = useStyles();
+
+    const user = useSelector(state=>state.user);
+    
+
    return(
     <AppBar position="fixed" color="inherit" className={classes.appBar}>
                
@@ -48,21 +54,9 @@ function Header(){
         <SvgIcon className={classes.button}>
             <Bell ></Bell>
         </SvgIcon>
-        <Avatar alt="Avatar" src="/" />
+        <Avatar alt="Avatar" src={user && user.avatar} />
         </div>
         
-        {/* <div>
-            <a href="/">Clube Seleto</a>
-            <input type="text"></input>
-        </div>
-
-        <div >
-        <Button variant="contained" color="primary">
-        Cadastrar
-        </Button>
-            <span>IMG1</span>
-            <span>IMG2</span>
-        </div> */}
 
     </Toolbar>
     </AppBar>
