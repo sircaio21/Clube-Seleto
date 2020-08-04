@@ -7,6 +7,7 @@ import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom'
 import { Provider } from "react-redux";
 
+import Auth from "./components/Auth"
 import "./mock";
 import GuestRoute from "./routes/GuestRoute"
 import theme from "./theme"
@@ -17,11 +18,13 @@ function App() {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <GuestRoute path="/signin" element={<Signin />} />
-            <Route path="*" element={<h1>ERROR 404</h1>} />
-          </Routes>
+          <Auth>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <GuestRoute path="/signin" element={<Signin />} />
+              <Route path="*" element={<h1>ERROR 404</h1>} />
+            </Routes>
+          </Auth>
         </BrowserRouter>
       </ThemeProvider>
     </Provider>

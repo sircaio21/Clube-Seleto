@@ -5,9 +5,8 @@ import Box from '@material-ui/core/Box';
 import { Avatar, Typography, Button, Link,Paper, FormHelperText } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import {useNavigate} from "react-router-dom";
-import axios from "../../utils/axios";
-import {useSelector, useDispatch} from "react-redux";
-import signIn from "../../actions/accountActions"; 
+import {useDispatch} from "react-redux";
+import {signIn}from "../../actions/accountActions"; 
 
 const useStyles =  makeStyles((theme)=>({
     root:{
@@ -58,7 +57,7 @@ function Copyright(){
     return(
         <Typography variant="body2" align="center">
         {"Copyright © "}
-        <a color="inherit"  href="#">Clube Seleto</a>{" "}
+        <a color="inherit"  href="/">Clube Seleto</a>{" "}
         {new Date().getFullYear()}
         </Typography>
     )
@@ -71,16 +70,14 @@ function Signin(){
     const [email, setEmail]= useState("");
     const [password, setPassword]= useState("");
     const [errorMessage, setErrorMessage]= useState();
-    const account = useSelector(state=> state)
     const dispatch = useDispatch();
     
      async function handleSignIn(){
         try{
         await dispatch(signIn(email, password)); 
-        navigate("/ ")
+        navigate("/")
         }catch(error){
-        console.log(error) 
-        //setErrorMessage(error.response.data.message)
+        setErrorMessage(error.response.data.message)
         }
         
         
@@ -124,7 +121,6 @@ function Signin(){
                             required
                             variant="outlined"
                             margin="normal"
-                            required
                             fullWidth
                             id="email"
                             label="E-mail"
@@ -138,7 +134,6 @@ function Signin(){
                             required
                             variant="outlined"
                             margin="normal"
-                            required
                             fullWidth
                             id="password"
                             label="password"

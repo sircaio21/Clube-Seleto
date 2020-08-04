@@ -38,8 +38,8 @@ bell:{
 function Header(){
     const classes = useStyles();
 
-    const user = useSelector(state=>state.user);
-    
+    const account = useSelector(state=>state.account);
+    console.log(account)
 
    return(
     <AppBar position="fixed" color="inherit" className={classes.appBar}>
@@ -54,7 +54,7 @@ function Header(){
         <SvgIcon className={classes.button}>
             <Bell ></Bell>
         </SvgIcon>
-        <Avatar alt="Avatar" src={user && user.avatar} />
+        <Avatar alt="Avatar" src={account.user && account.user.avatar} />
         </div>
         
 
