@@ -1,35 +1,32 @@
-import authService from "../services/authService"
+import authService from "../services/authService";
 
-export const LOGIN_SUCCESS = "@account/LOGIN_SUCCESS"
-export const SILENT_LOGIN = "@account/SILENT_LOGIN"
+export const LOGIN_SUCCESS = "@account/LOGIN_SUCCESS";
+export const SILENT_LOGIN = "@account/SILENT_LOGIN";
 
-const signIn = (email, password)=>{
-    return async(dispatch) => {
-        const user = await authService.signIn(email,password);
+const signIn = (email, password) => {
+  return async (dispatch) => {
+    const user = await authService.signIn(email, password);
 
-        dispatch({
-            type: LOGIN_SUCCESS,
-            payload:{
-                user
-            }
-        })
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: {
+        user,
+      },
+    });
+  };
+};
 
-    }
-}
+const setUserData = () => {
+  return async (dispatch) => {
+    const user = await authService.signInWithToken();
 
-const setUserData = ()=>{
-    return async(dispatch) => {
-        const user = await authService.signInWithToken();
+    dispatch({
+      type: SILENT_LOGIN,
+      payload: {
+        user,
+      },
+    });
+  };
+};
 
-        dispatch({
-            type: SILENT_LOGIN,
-            payload:{
-                user
-            }
-        })
-
-    }
-}
-
-
-export{signIn,setUserData};
+export { signIn, setUserData };
