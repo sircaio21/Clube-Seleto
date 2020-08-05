@@ -1,15 +1,18 @@
-import authService from "../services/authService"
+
+import authService from "../services/authService";
 
 export const LOGIN_SUCCESS = "@account/LOGIN_SUCCESS"
 export const SILENT_LOGIN = "@account/SILENT_LOGIN"
+export const SIGNOUT = "@account/SIGNOUT"
 
-const signIn = (email, password)=>{
-    return async(dispatch) => {
-        const user = await authService.signIn(email,password);
+
+const signIn = (email, password) => {
+    return async (dispatch) => {
+        const user = await authService.signIn(email, password);
 
         dispatch({
             type: LOGIN_SUCCESS,
-            payload:{
+            payload: {
                 user
             }
         })
@@ -17,13 +20,13 @@ const signIn = (email, password)=>{
     }
 }
 
-const setUserData = ()=>{
-    return async(dispatch) => {
+const setUserData = () => {
+    return async (dispatch) => {
         const user = await authService.signInWithToken();
 
         dispatch({
             type: SILENT_LOGIN,
-            payload:{
+            payload: {
                 user
             }
         })
@@ -31,5 +34,20 @@ const setUserData = ()=>{
     }
 }
 
+const signOut = () => {
+    return async (dispatch) => {
+        await authService.signOut();
+        dispatch({
+            type: SIGNOUT,
 
-export{signIn,setUserData};
+        })
+
+    }
+
+
+}
+
+
+
+export { signIn, setUserData, signOut };
+
