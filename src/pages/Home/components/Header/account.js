@@ -17,6 +17,7 @@ function Account() {
 
     const handleOpen = () => {
         setOpen(true);
+        console.log(ref)
     };
     const handleClose = () => {
         setOpen(false);

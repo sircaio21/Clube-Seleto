@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "axios-mock-adapter": "^1.18.2",
     "history": "^5.0.0",
+    "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",

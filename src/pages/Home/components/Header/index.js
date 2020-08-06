@@ -1,13 +1,13 @@
 import React from "react";
-import { Button } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 //import "../styles.css"
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import { Bell } from "react-feather"
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 import Account from "./account"
+import Notifications from "./Notifications"
+import WritePost from "./WritePost"
 
 const useStyles = makeStyles({
     appBar: {
@@ -23,13 +23,6 @@ const useStyles = makeStyles({
     userSection: {
         display: 'flex',
         alignItems: "center"
-    },
-    button: {
-        marginRight: 10,
-    },
-    bell: {
-        marginRight: 10,
-
     },
 
 })
@@ -47,13 +40,15 @@ function Header() {
                 <img src="/images/logo1.png" alt="logo" className={classes.img}></img>
                 <div className={classes.grow}></div>
                 <div className={classes.userSection}>
-                    <Button variant="contained" color="primary" className={classes.button}>
+                    <WritePost variant="contained" color="primary" className={classes.button}>
                         Cadastrar-se
-        </Button>
-                    <SvgIcon className={classes.button}>
-                        <Bell ></Bell>
-                    </SvgIcon>
-                    <Account />
+                </WritePost>
+                    <Box ml={4}>
+                        <Notifications />
+                    </Box>
+                    <Box ml={4}>
+                        <Account />
+                    </Box>
                 </div>
 
 
