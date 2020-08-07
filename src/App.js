@@ -6,7 +6,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom'
 import { Provider } from "react-redux";
-
 import Auth from "./components/Auth"
 import "./mock";
 import GuestRoute from "./routes/GuestRoute"
@@ -20,9 +19,8 @@ function App() {
         <BrowserRouter>
           <Auth>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="//*" element={<Home />} />
               <GuestRoute path="/signin" element={<Signin />} />
-              <Route path="*" element={<h1>ERROR 404</h1>} />
             </Routes>
           </Auth>
         </BrowserRouter>

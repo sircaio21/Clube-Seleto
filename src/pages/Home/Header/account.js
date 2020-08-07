@@ -4,7 +4,7 @@ import { Avatar } from '@material-ui/core';
 import { useNavigate } from "react-router-dom"
 import { Menu } from '@material-ui/core';
 import { MenuItem } from '@material-ui/core';
-import { signOut } from "../../../../actions/accountActions"
+import { signOut } from "../../../actions/accountActions"
 
 function Account() {
     const account = useSelector((state) => state.account)

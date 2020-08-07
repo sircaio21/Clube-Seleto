@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { useSelector, useDispatch } from "react-redux";
 import Popover from "@material-ui/core/Popover";
-import { getNotifications } from "../../../../actions/notificationActions"
+import { getNotifications } from "../../../actions/notificationActions"
 import {
     Star as StarIcon,
     Bell as BellIcon,

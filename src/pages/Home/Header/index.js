@@ -40,9 +40,7 @@ function Header() {
                 <img src="/images/logo1.png" alt="logo" className={classes.img}></img>
                 <div className={classes.grow}></div>
                 <div className={classes.userSection}>
-                    <WritePost variant="contained" color="primary" className={classes.button}>
-                        Cadastrar-se
-                </WritePost>
+                    <WritePost />
                     <Box ml={4}>
                         <Notifications />
                     </Box>
