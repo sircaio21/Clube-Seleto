@@ -64,7 +64,7 @@ function Account() {
                         getContentAnchorEl={null}
                     >
                         <MenuItem>Cadastrar-se</MenuItem>
-                        <MenuItem>Entrar</MenuItem>
+                        <MenuItem onClick={handleSignOut}>Entrar</MenuItem>
                     </Menu>)
             }
 

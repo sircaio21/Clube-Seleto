@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux"
+import React from "react";
 import { makeStyles } from "@material-ui/styles"
 import { Box } from "@material-ui/core"
 import AppBar from '@material-ui/core/AppBar';

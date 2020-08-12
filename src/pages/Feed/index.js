@@ -70,7 +70,7 @@ function Feed() {
                         {
                             posts.map(post => (
 
-                                <Grid item xs={6} spacing={1}>
+                                <Grid item xs={12} spacing={1}>
                                     <PostCard key={post.id} post={post} />
                                 </Grid>
 

@@ -13,105 +13,105 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 import MessageIcon from '@material-ui/icons/Message';
 import Grid from '@material-ui/core/Grid';
 
-const useStyles = makeStyles((theme)=>({
-    root:{
+const useStyles = makeStyles((theme) => ({
+    root: {
         marginBottom: theme.spacing(2)
     },
-    subheader:{
+    subheader: {
         display: "flex",
         alignItems: "cen"
     },
-    caption:{
+    caption: {
         marginRight: theme.spacing(1)
     },
-    message:{
+    message: {
         height: "auto",
         marginBottom: theme.spacing(2),
         padding: "0 24px"
     },
-    image:{
-    height: 300,
-    //marginLeft: theme.spacing(4),
-    width:"auto",
-    maxWidth:"auto",
-    
+    image: {
+        height: "50vh",
+        //marginLeft: theme.spacing(4),
+        width: "auto",
+        maxWidth: "auto",
+
     },
-    content:{
+    content: {
         padding: 0,
     },
-    contentArea:{
-        
+    contentArea: {
+
         display: "flex",
-        flexDirection:"row",
+        flexDirection: "row",
         justifyContent: "center"
     },
-    favorite:{
+    favorite: {
         marginLeft: "auto"
     }
 
 }));
 
-function PostCard({post}){
+function PostCard({ post }) {
     const classes = useStyles();
-    return(
-    <Grid item xs={12}>
-    <Card className={classes.root}>
-        <CardHeader 
-            avatar={<Avatar src={post.autor.avatar}/>}
-            title = {<Typography variant="h6">{post.title}</Typography>}
-            subheader={
-                <div className={classes.subheader}>
-                <Typography variant="caption" className={classes.caption}>
-                    {"Autora: "}
-                </Typography>
-                <Typography variant="subtitle2" className={classes.caption}>
-                    {post.autor.name}
-                </Typography>
-                <Typography variant="subtitle2" className={classes.caption}>
-                    {post.date}
-                </Typography>
-                </div>
-            }
-        />
-        <CardContent className={classes.content}>
-            <CardActionArea className={classes.contentArea}> 
-                <img src={post.image} className={classes.image} alt="img"/>
-            </CardActionArea>
-            
-        </CardContent>
-        <CardActions disableSpacing>
+    return (
+        <Grid item xs={12}>
+            <Card className={classes.root}>
+                <CardHeader
+                    avatar={<Avatar src={post.autor.avatar} />}
+                    title={<Typography variant="h6">{post.title}</Typography>}
+                    subheader={
+                        <div className={classes.subheader}>
+                            <Typography variant="caption" className={classes.caption}>
+                                {"Autora: "}
+                            </Typography>
+                            <Typography variant="subtitle2" className={classes.caption}>
+                                {post.autor.name}
+                            </Typography>
+                            <Typography variant="subtitle2" className={classes.caption}>
+                                {post.date}
+                            </Typography>
+                        </div>
+                    }
+                />
+                <CardContent className={classes.content}>
+                    <CardActionArea className={classes.contentArea}>
+                        <img src={post.image} className={classes.image} alt="img" />
+                    </CardActionArea>
 
-        <IconButton aria-label="like">
-          <FavoriteIcon />
-          <Typography
-              style={{cursor:"pointer" }}
-              color="textSecondary"
-              variant="body2">
-            {"10"}
-          </Typography>
-        </IconButton>
-        <IconButton aria-label="coment">
-          <MessageIcon />
-          <Typography
-              className={classes.reactions}
-              color="textSecondary"
-              variant="body2">
-            {"30"}
-          </Typography>
-        </IconButton>
-        <IconButton aria-label="favorite" className={classes.favorite}>
-          <BookmarkIcon />
-          <Typography
-              style={{cursor:"pointer" }}
-              color="textSecondary"
-              variant="body2">
-            {"10"}
-          </Typography>
-        </IconButton>
-            
-        </CardActions>
-    </Card>
-    </Grid>
+                </CardContent>
+                <CardActions disableSpacing>
+
+                    <IconButton aria-label="like">
+                        <FavoriteIcon />
+                        <Typography
+                            style={{ cursor: "pointer" }}
+                            color="textSecondary"
+                            variant="body2">
+                            {"10"}
+                        </Typography>
+                    </IconButton>
+                    <IconButton aria-label="coment">
+                        <MessageIcon />
+                        <Typography
+                            className={classes.reactions}
+                            color="textSecondary"
+                            variant="body2">
+                            {"30"}
+                        </Typography>
+                    </IconButton>
+                    <IconButton aria-label="favorite" className={classes.favorite}>
+                        <BookmarkIcon />
+                        <Typography
+                            style={{ cursor: "pointer" }}
+                            color="textSecondary"
+                            variant="body2">
+                            {"10"}
+                        </Typography>
+                    </IconButton>
+
+                </CardActions>
+            </Card>
+        </Grid>
     )
 
 
