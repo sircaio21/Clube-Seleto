@@ -3,20 +3,20 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
+import Hidden from '@material-ui/core/Hidden';
 
 import NavBar from "./NavBar"
 import axios from "../../utils/axios"
 import PostCard from "../../components/PostCard"
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
-        width: "50%"
+        width: "100%"
     },
-    // div2: {
-    //     flexGrow: 1,
 
-    // }
-}))
+
+}
+))
 
 // const posts = [
 //     {
@@ -80,7 +80,9 @@ function Feed() {
 
         <Container maxWidth="lg">
             <Box display="flex">
-                <NavBar />
+                <Hidden smDown>
+                    <NavBar />
+                </Hidden>
                 <div className={classes.root}>
 
                     <Grid container spacing={1}>
@@ -97,7 +99,7 @@ function Feed() {
                 <div className={classes.div2}>
                 </div>
             </Box>
-        </Container>
+        </Container >
     )
 
 }
