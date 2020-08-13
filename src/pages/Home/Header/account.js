@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { Menu } from '@material-ui/core';
 import { MenuItem } from '@material-ui/core';
 import { signOut } from "../../../actions/accountActions"
+import { Link } from "react-router-dom";
 
 function Account() {
     const account = useSelector((state) => state.account)
@@ -64,7 +65,11 @@ function Account() {
                         getContentAnchorEl={null}
                     >
                         <MenuItem>Cadastrar-se</MenuItem>
-                        <MenuItem onClick={handleSignOut}>Entrar</MenuItem>
+                        <MenuItem>
+                            <Link to="/signin">
+                                Entrar
+                            </Link>
+                        </MenuItem>
                     </Menu>)
             }
 

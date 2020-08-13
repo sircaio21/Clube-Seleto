@@ -5,8 +5,9 @@ import { Route, Routes } from "react-router-dom"
 import Header from "./Header"
 import NewPost from "../Post/New";
 import Feed from "../Feed";
+import Post from "../Post"
 
-;
+    ;
 const useStyles = makeStyles({
     root: {
         display: 'flex',
@@ -32,6 +33,7 @@ function Home() {
                 <Routes>
                     <Route path="/" element={<Feed />} />
                     <Route path="/post/new" element={<NewPost />} />
+                    <Route path="/post/:slug" element={<Post />} />
                     <Route path="/feed" element={<Feed />} />
                     <Route path="*" element={<h1>ERROR 404</h1>} />
                 </Routes>

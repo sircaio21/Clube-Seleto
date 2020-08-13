@@ -12,14 +12,16 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import MessageIcon from '@material-ui/icons/Message';
 import Grid from '@material-ui/core/Grid';
+import { useNavigate } from "react-router";
+import moment from 'moment';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginBottom: theme.spacing(2)
+        marginBottom: theme.spacing(2),
     },
     subheader: {
         display: "flex",
-        alignItems: "cen"
+        alignItems: "center"
     },
     caption: {
         marginRight: theme.spacing(1)
@@ -30,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         padding: "0 24px"
     },
     image: {
-        height: "50vh",
+
         //marginLeft: theme.spacing(4),
         width: "auto",
         maxWidth: "auto",
@@ -53,22 +55,28 @@ const useStyles = makeStyles((theme) => ({
 
 function PostCard({ post }) {
     const classes = useStyles();
+    const navigate = useNavigate();
+    const handlePostClick = () => {
+        navigate(`/post/${post.slug}`);
+
+    };
+
     return (
         <Grid item xs={12}>
-            <Card className={classes.root}>
+            <Card className={classes.root} onClick={handlePostClick}>
                 <CardHeader
-                    avatar={<Avatar src={post.autor.avatar} />}
+                    avatar={<Avatar src={post.autor?.avatar} />}
                     title={<Typography variant="h6">{post.title}</Typography>}
                     subheader={
                         <div className={classes.subheader}>
                             <Typography variant="caption" className={classes.caption}>
-                                {"Autora: "}
+                                Autor:
                             </Typography>
                             <Typography variant="subtitle2" className={classes.caption}>
                                 {post.autor.name}
                             </Typography>
                             <Typography variant="subtitle2" className={classes.caption}>
-                                {post.date}
+                                {moment(post.date).fromNow()}
                             </Typography>
                         </div>
                     }
@@ -87,7 +95,7 @@ function PostCard({ post }) {
                             style={{ cursor: "pointer" }}
                             color="textSecondary"
                             variant="body2">
-                            {"10"}
+                            {post.likes}
                         </Typography>
                     </IconButton>
                     <IconButton aria-label="coment">
@@ -96,7 +104,7 @@ function PostCard({ post }) {
                             className={classes.reactions}
                             color="textSecondary"
                             variant="body2">
-                            {"30"}
+                            {post.comments}
                         </Typography>
                     </IconButton>
                     <IconButton aria-label="favorite" className={classes.favorite}>
@@ -105,16 +113,16 @@ function PostCard({ post }) {
                             style={{ cursor: "pointer" }}
                             color="textSecondary"
                             variant="body2">
-                            {"10"}
+
                         </Typography>
                     </IconButton>
 
                 </CardActions>
             </Card>
         </Grid>
-    )
+    );
 
 
 }
 
-export default PostCard
+export default PostCard;

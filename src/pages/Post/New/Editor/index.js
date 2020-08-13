@@ -41,8 +41,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
-
 function PostEditor() {
     const classes = useStyles();
     const ctx = usePost();

@@ -1,6 +1,5 @@
 import React from "react";
 import { Box } from '@material-ui/core';
-//import "../styles.css"
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -8,6 +7,7 @@ import { useSelector } from "react-redux";
 import Account from "./account"
 import Notifications from "./Notifications"
 import WritePost from "./WritePost"
+import { Link } from "react-router-dom"
 
 const useStyles = makeStyles({
     appBar: {
@@ -37,7 +37,9 @@ function Header() {
         <AppBar position="fixed" color="inherit" className={classes.appBar}>
 
             <Toolbar>
-                <img src="/images/logo1.png" alt="logo" className={classes.img}></img>
+                <Link to="/">
+                    <img src="/images/logo1.png" alt="logo" className={classes.img}></img>
+                </Link>
                 <div className={classes.grow}></div>
                 <div className={classes.userSection}>
                     <WritePost />
