@@ -32,9 +32,7 @@ const useStyles = makeStyles((theme) => ({
         padding: "0 24px"
     },
     image: {
-
-        //marginLeft: theme.spacing(4),
-        width: "auto",
+        width: "100%",
         maxWidth: "auto",
 
     },
