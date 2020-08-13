@@ -1,7 +1,6 @@
 import React from 'react';
 import Home from "./pages/Home"
 import { ThemeProvider } from '@material-ui/styles';
-import Signin from "./pages/Signin"
 import { BrowserRouter } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom'
@@ -11,6 +10,9 @@ import "./mock";
 import GuestRoute from "./routes/GuestRoute"
 import theme from "./theme"
 import store from "./store"
+import Signin from "./pages/Signin"
+import Signup from "./pages/Signup";
+
 function App() {
 
   return (
@@ -21,6 +23,7 @@ function App() {
             <Routes>
               <Route path="//*" element={<Home />} />
               <GuestRoute path="/signin" element={<Signin />} />
+              <GuestRoute path="/signup" element={<Signup />} />
             </Routes>
           </Auth>
         </BrowserRouter>
