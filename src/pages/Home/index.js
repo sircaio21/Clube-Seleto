@@ -8,7 +8,7 @@ import Feed from "../Feed";
 import Post from "../Post";
 import Profile from "../Profile";
 
-;
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',

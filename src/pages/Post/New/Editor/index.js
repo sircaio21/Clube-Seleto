@@ -14,14 +14,14 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(2)
     },
     image: {
-        height: 100
+        height: 300
 
 
     },
     imagePreview: {
 
-        maxHeight: "50%",
-        maxWidth: "50%"
+        maxHeight: "100%",
+        maxWidth: "100%"
 
     },
     box2: {
@@ -67,16 +67,17 @@ function PostEditor() {
                 <input {...getInputProps()} />
                 <Button variant="outlined" color="secondary">Carregar imagem</Button>
             </Box>
+
+            <Box mb={2}>
+                <Title
+                />
+            </Box>
             <Box mb={2}>
                 {image &&
                     <img src={image}
                         alt="background"
                         className={classes.image}></img>
                 }
-            </Box>
-            <Box mb={2}>
-                <Title
-                />
             </Box>
             <textarea
                 className={classes.textearea}
