@@ -8,6 +8,7 @@ import Account from "./account"
 import Notifications from "./Notifications"
 import WritePost from "./WritePost"
 import { Link } from "react-router-dom"
+import Settings from './Settings';
 
 const useStyles = makeStyles({
     appBar: {
@@ -43,10 +44,13 @@ function Header() {
                 <div className={classes.grow}></div>
                 <div className={classes.userSection}>
                     <WritePost />
-                    <Box ml={4}>
+                    <Box ml={2}>
                         <Notifications />
                     </Box>
-                    <Box ml={4}>
+                    <Box ml={2}>
+                        <Settings />
+                    </Box>
+                    <Box ml={2}>
                         <Account />
                     </Box>
                 </div>
