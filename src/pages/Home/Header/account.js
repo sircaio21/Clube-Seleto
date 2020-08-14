@@ -6,7 +6,8 @@ import { Menu } from '@material-ui/core';
 import { MenuItem } from '@material-ui/core';
 import { signOut } from "../../../actions/accountActions"
 import { Link } from "react-router-dom";
-
+import WritePost from "./WritePost"
+import Hidden from '@material-ui/core/Hidden';
 function Account() {
     const account = useSelector((state) => state.account)
     const [isOpen, setOpen] = useState(false);
@@ -47,6 +48,9 @@ function Account() {
                 onClose={handleClose}
                 getContentAnchorEl={null}
             >
+                <Hidden smUp>
+                    <MenuItem><WritePost /></MenuItem>
+                </Hidden>
                 <MenuItem onClick={() => navigate(`/${account.user?.username}`)}>Meu Perfil</MenuItem>
                 <MenuItem>Meus posts</MenuItem>
                 <MenuItem>Minhas conexões</MenuItem>

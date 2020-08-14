@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Hidden from '@material-ui/core/Hidden';
-
 import NavBar from "./NavBar"
 import axios from "../../utils/axios"
 import PostCard from "../../components/PostCard"

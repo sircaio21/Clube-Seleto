@@ -9,14 +9,20 @@ import Notifications from "./Notifications"
 import WritePost from "./WritePost"
 import { Link } from "react-router-dom"
 import Settings from './Settings';
+import Hidden from '@material-ui/core/Hidden';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     appBar: {
         boxShadow: 'none',
-
+        [theme.breakpoints.down('sm')]: {
+            maxHeight: "55px",
+        },
     },
     img: {
         maxHeight: "55px",
+        [theme.breakpoints.down('sm')]: {
+            maxHeight: "40px",
+        },
     },
     grow: {
         flexGrow: 1,
@@ -26,7 +32,7 @@ const useStyles = makeStyles({
         alignItems: "center"
     },
 
-})
+}));
 
 function Header() {
     const classes = useStyles();
@@ -43,15 +49,19 @@ function Header() {
                 </Link>
                 <div className={classes.grow}></div>
                 <div className={classes.userSection}>
-                    <WritePost />
+                    <Hidden xsDown>
+                        <WritePost />
+                    </Hidden>
+
                     <Box ml={2}>
                         <Notifications />
                     </Box>
-                    <Box ml={2}>
-                        <Settings />
-                    </Box>
+
                     <Box ml={2}>
                         <Account />
+                    </Box>
+                    <Box ml={2}>
+                        <Settings />
                     </Box>
                 </div>
 
