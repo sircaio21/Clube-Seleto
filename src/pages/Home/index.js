@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     main: {
 
         padding: 24,
+        [theme.breakpoints.down('sm')]: {
+            padding: 0,
+        },
     },
     toolbar: {
         minHeight: 64,
