@@ -15,14 +15,14 @@ const themes = [
         palette: {
             type: 'light',
             primary: {
-                dark: colors.indigo.A700,
-                main: colors.indigo.A400,
-                light: colors.indigo.A200,
+                dark: "#7b2730",
+                main: "#B03845",
+                light: "#bf5f6a",
             },
             secondary: {
-                dark: colors.orange.A700,
-                main: colors.orange.A700,
-                light: colors.orange.A200,
+                dark: "#ab003c",
+                main: "#f50057",
+                light: "#f73378",
             },
             background: {
                 default: colors.common.white,
@@ -40,14 +40,14 @@ const themes = [
         palette: {
             type: 'dark',
             primary: {
-                dark: colors.indigo.A700,
-                main: colors.indigo.A400,
-                light: colors.indigo.A200,
+                dark: "#7b2730",
+                main: "#B03845",
+                light: "#bf5f6a",
             },
             secondary: {
-                dark: colors.indigo.A700,
-                main: colors.indigo.A400,
-                light: colors.indigo.A200,
+                dark: "#ab003c",
+                main: "#f50057",
+                light: "#f73378",
             },
             background: {
                 default: '#282C34',

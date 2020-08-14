@@ -7,7 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signIn } from "../../actions/accountActions";
-
+import Hidden from '@material-ui/core/Hidden';
 const useStyles = makeStyles((theme) => ({
     root: {
 
@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     img: {
         maxHeight: "400px",
         padding: theme.spacing(2),
+
     },
     button: {
         marginTop: theme.spacing(0),
@@ -47,8 +48,8 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         flexDirection: "column",
+        textAlign: "center",
 
-        textAlign: "center"
     }
 
 
@@ -84,17 +85,19 @@ function Signin() {
     }
     return (
         <Grid container className={classes.root}>
-            <Grid className={classes.left}
-                md={12}
-                item
-                container
-                direction="column"
-                justify="center"
-                alignItems="center"
-            >
-                <img src="/images/cover.png" alt="logo" className={classes.img}></img>
+            <Hidden smDown>
+                <Grid className={classes.left}
+                    md={12}
+                    item
+                    container
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                >
+                    <img src="/images/cover.png" alt="logo" className={classes.img}></img>
+                </Grid>
+            </Hidden>
 
-            </Grid>
 
             <Grid md={12} className={classes.right}
                 item
@@ -108,9 +111,21 @@ function Signin() {
                     direction="column"
                     justify="center"
                     alignItems="center"
-                    m={8}
+                    //width={250}
+                    mt={8}
+                    ml={1}
+                    mr={1}
+                //paddingLeft={3}
+
+                //m={8}
                 >
-                    <Paper elevation={10} className={classes.paper} variant="rounded">
+                    <Paper
+                        elevation={10}
+                        className={classes.paper}
+                        variant="rounded"
+
+                    >
+
                         <Box display="flex"
                             flexDirection="column"
                             alignItems="center"
