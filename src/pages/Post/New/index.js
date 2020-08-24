@@ -30,7 +30,7 @@ function NewPost() {
         <PostProvider>
             <Box display="flex"
                 height='calc(100% - 70px )'
-            // overflow="scroll"
+                overflow="scroll"
 
             >
 

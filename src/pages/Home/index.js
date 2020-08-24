@@ -7,7 +7,8 @@ import NewPost from "../Post/New";
 import Feed from "../Feed";
 import Post from "../Post";
 import Profile from "../Profile";
-
+import Catalog from "../Catalog";
+import IntegrateHome from "../IntegrateHome";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,11 +37,13 @@ function Home() {
             <div className={classes.toolbar}></div>
             <main className={classes.main}>
                 <Routes>
-                    <Route path="/" element={<Feed />} />
+                    <Route path="/" element={<IntegrateHome />} />
                     <Route path="/post/new" element={<NewPost />} />
                     <Route path="/post/:slug" element={<Post />} />
-                    <Route path="/feed" element={<Feed />} />
+                    <Route path="/feed" element={<IntegrateHome />} />
                     <Route path="/:username" element={<Profile />} />
+                    <Route path="/catalog" element={<Catalog />} />
+
 
                     <Route path="*" element={<h1>ERROR 404</h1>} />
                 </Routes>
